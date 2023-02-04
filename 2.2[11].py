@@ -13,7 +13,24 @@ else:
         if fib_next == a:
             print(n)
             break    
-        fib_prev, fib_next = fib_next, fib_prev + fib_next
+        fib_tmp = fib_prev + fib_next # swap замена
+        fib_prev = fib_next
+        fib_next = fib_tmp
         n+=1
     else:
          print(-1)
+         
+# a = int(input())
+# if a == 0:
+#     print(1)
+# else:
+#     fib_prev, fib_next = 0, 1 # распаковка
+#     n = 2
+#     while fib_next <= a:
+#         if fib_next == a:
+#             print(n)
+#             break    
+#         fib_prev, fib_next = fib_next, fib_prev + fib_next
+#         n+=1
+#     else:
+#          print(-1)         
