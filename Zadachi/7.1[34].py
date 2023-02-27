@@ -15,10 +15,14 @@
 # Подумайте об эффективности алгоритма. Какие структуры данных будут более эффективны по скорости.
 # Алгоритм должен работать так, чтобы не делать лишних проверок. Подумайте, возможно некоторые проверки не нужны.
 
-def rifma(slog1, slog2):
-    if slog1.find(slog2) == len(slog1) - len(slog2): 
+def wini_rifma(poem):
+    phrase=poem.lower().split()
+    f = lambda el: sum (1 for letter in el if letter in 'аоэеиыуёюя')
+    tmp=f(phrase[0])
+    if all([f(el)==tmp for el in phrase]):
         return True
-    if slog2.find(slog1) == len(slog2) - len(slog1): 
-        return False
-
-print(rifma(len, ("пара-ра-рам рам-пам-папам па-ра-па-дам")))
+    return False
+print(wini_rifma("пара-ра-рам рам-пум-пупам па-ре-по-дам"))
+print(wini_rifma("пара-ра-рам рам-пуум-пупам па-ре-по-дам"))
+print(wini_rifma("Трам-пара-папам-парам-па-пам-пам-па Пум-пурум-пу-пурум-трам-пам-па"))
+print(wini_rifma("Пам-парам-пурум Пум-пурум-карам")) 
